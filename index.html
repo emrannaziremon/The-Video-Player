@@ -8,6 +8,81 @@
     <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/demo.css" /> -->
     <link rel="stylesheet" href="css/design.css" /> 
   </head>
+
+  <style>
+    .the-vplayer-wrapper {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 650px;
+    }
+
+    .plyr__control--overlaid:before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      display: block;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: #2278c9;
+      border-radius: 50%;
+      transition: all 200ms;
+      animation: pulse-border 1500ms ease-out infinite;
+    }
+
+    .plyr__control--overlaid:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      display: none;
+      width: 80px;
+      height: 80px;
+      background: #2278c9;
+      border-radius: 50%;
+      transition: all 200ms;
+    }
+
+    .plyr--full-ui.plyr--video .plyr__control--overlaid {
+      display: block;
+      height: 80px;
+      width: 80px;
+      /* transform: translate(15px, 10px); */
+    }
+
+    .plyr__control--overlaid svg {
+      left: 2px;
+      position: relative;
+      margin-left: 6px;
+      height: 30px;
+      width: 40px;
+    }
+
+    @keyframes pulse-border {
+      0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .plyr--captions-enabled [data-plyr="captions"] {
+      display: none;
+    }
+
+    .movie-frame {
+      overflow: hidden;
+      width: 55%;
+      margin-right: 40px;
+      border-style: none !important;
+      border-width: 1px;
+      border-color: #4885fb;
+      border-radius: 4px;
+    }
+  </style>
   <body>
     <div class="the-vplayer-wrapper">
       <video
